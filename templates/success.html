@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+    <div class="popup" id="popup"> 
+        <div style="width: 500px;">
+            <div class="entry">
+                <label style="font-size: 23px;" class="line"><b>Product</b></label>
+                <label class="prod" name="prod" id="prod" style="width: 230px;">Test Product</label>
+            </div>
+        </div>
+        <br>
+        <div style="width: 500px;">
+            <div class="entry">
+                <label style="font-size: 23px;" class="line"><b>Price</b></label>
+                <label class="price" name="price" id="price" style="width: 180px;">₹ 12,599.00</label>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="width: 500px; text-align: center;">
+            <h2
+                class="entry line status"
+                style=
+                    "background: linear-gradient(90deg, rgb(145, 255, 0), rgb(0, 145, 7), #004600, rgb(0, 145, 7), rgb(145, 255, 0));
+                    padding-left: 130px;"
+            >
+                PAYMENT SUCCESSFUL
+            </h2>
+        </div>
+    </div>
+</center>
+{% endblock %}

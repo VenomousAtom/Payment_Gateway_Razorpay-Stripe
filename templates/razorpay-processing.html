@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block body %}
+    <center>
+        <form action="/razorpay/verification" method="post" id="verify" style="display: flex; align-items: center; justify-content: center;">
+            <input type="text" name="paymentid" id="paymentid" style="display: none;">
+            <input type="text" name="orderid" id="orderid" style="display: none;">
+            <input type="text" name="signature" id="signature" style="display: none;">
+            <input name="verifsubmit" id="verifsubmit" type="submit" value="Verify Payment">    
+        </form>
+    </center>
+
+    <!-- This script imports the necessary Javascript modules for Checkout Processes -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        // Parameters for the Checkout Process
+        var options = {
+            "key": "{{ keyid }}", // Enter the Key ID generated from the Dashboard
+            "name": "Doe Industries", //merchant name
+            "description": "Test Transaction", //Transaction Description
+            "image": "{{url_for('static', filename='res/example.jpg')}}", //test image for the merchant or product
+            "order_id": "{{ orderid }}", //Order id for the order we want to proceed with
+            //handler runs its content on succesful payment
+            "handler": function (response){
+                console.log(
+                    {
+                        razorpay_payment_id : response.razorpay_payment_id,
+                        razorpay_order_id : response.razorpay_order_id,
+                        razorpay_signature : response.razorpay_signature
+                    }
+                );
+                // Sets the Input Values to response values so that on Pressing Submit
+                // the Values can be verified for Successful Payment
+                document.getElementById("paymentid").value = response.razorpay_payment_id;
+                document.getElementById("orderid").value = response.razorpay_order_id;
+                document.getElementById("signature").value = response.razorpay_signature;
+            },
+            //theme for the Checkout Pop-up
+            "theme": {
+                "color": "#151515"
+            }
+        };
+
+        var rzp1 = new Razorpay(options);
+
+        //This function runs in case some error Occurs during payment Process
+        rzp1.on('payment.failed', function (response){
+                alert(response.error.description);
+                console.log(
+                    {
+                        razorpay_payment_id : response.error.metadata.payment_id,
+                        razorpay_order_id : response.error.metadata.order_id
+                    }
+                );
+        });
+
+        window.onload = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,127 @@
+*
+{
+    margin: 0;
+}
+
+.header
+{
+    padding: 15px;
+    background: linear-gradient(90deg, #0162c8, #55e7fc);
+    color: white;
+    font-weight: bolder;
+}
+
+body{
+    background: linear-gradient(90deg, black, #050f18, #0162c8);
+}
+
+.entry{
+    color: white;
+    text-align: center;
+    padding: 0px 0px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 40px;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgb(9, 0, 94), rgb(31, 191, 255));
+    display: flex;
+    justify-content: space-between;
+}
+
+.prod,
+.price {
+   /* text-decoration: none; */
+   color: rgb(61, 61, 61);
+   text-align: center;
+   padding: 22px 15px;
+   margin: 0;
+   font-size: 23px;
+   font-weight: bolder;
+   letter-spacing: 2px;
+   border: none;
+   border-radius: 40px;
+   overflow: hidden;
+   background: linear-gradient(90deg, rgb(31, 191, 255), rgb(255, 255, 255));
+   /* linear-gradient(90deg, #0162c8, #55e7fc); */
+}
+
+.line{
+    padding-left: 60px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.popup
+{
+    position: relative;
+    top: 150px;
+    /* right: 200px; */
+}
+
+.stripe
+{
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    background: rgb(220, 220, 220);
+    border: 2px #755bea solid;
+    padding: 8px 15px;
+    margin: 5px 35px;
+    overflow: hidden;
+    font-size: 24px;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.razorpay {
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    background: rgb(220, 220, 220);
+    border: 2px rgb(31, 191, 255) solid;
+    padding: 4px 10px;
+    margin: 5px 35px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.razorpay:hover,
+.stripe:hover
+{
+    background: #fff;
+}
+
+#verifsubmit
+{
+    position: absolute;
+    top: 200px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(145, 255, 0, 0.7), rgba(0, 145, 7, 0.7), #004600);
+    margin: 10px 0;
+    padding: 12px 58px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+#verifsubmit:hover{
+    background: linear-gradient(90deg, rgb(145, 255, 0), rgb(0, 145, 7), #004600);
+}
+
+.status
+{
+    
+    /* padding-right: 50px; */
+    
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+    <div class="popup" id="popup"> 
+        <div style="width: 500px;">
+            <div class="entry">
+                <label style="font-size: 23px;" class="line"><b>Product</b></label>
+                <label class="prod" name="prod" id="prod" style="width: 230px;">Test Product</label>
+            </div>
+        </div>
+        <br>
+        <div style="width: 500px;">
+            <div class="entry">
+                <label style="font-size: 23px;" class="line"><b>Price</b></label>
+                <label class="price" name="price" id="price" style="width: 180px;">₹ 12,599.00</label>
+            </div>
+        </div>
+        <br>
+        <br>
+            <form action="/razorpay/processing" method="post">
+                <button class="razorpay">
+                    <img src="{{url_for('static', filename='res/razorpay-logo.png')}}" style="width: 150px;" alt="Razorpay">
+                </button>
+            </form>
+            <form action="/stripe/processing" method="post">
+                <button class="stripe">
+                    <img src="{{url_for('static', filename='res/stripe-logo.png')}}" style="width: 98px;" alt="Stripe">
+                </button>
+            </form>
+    </div>
+</center>
+{% endblock %}
